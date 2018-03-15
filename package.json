@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "laravel-mix": "^2.1.1"
+  }
+}
