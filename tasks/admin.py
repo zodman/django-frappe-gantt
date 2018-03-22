@@ -10,6 +10,8 @@ from tasks.models import Task
 
 
 class AdminTask(TreeAdmin):
+    list_display = ("name", "progress", "start","end")
+    list_editable = ("progress", 'start','end')
     form = movenodeform_factory(Task)
 
 admin.site.register(Task, AdminTask)

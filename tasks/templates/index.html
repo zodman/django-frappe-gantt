@@ -6,25 +6,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/frappe-gantt/0.1.0/frappe-gantt.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/frappe-gantt/0.1.0/frappe-gantt.js"></script>
-
+    <style>
+        .section {
+            width:100%;
+            margin: 0 auto;
+        }
+        #gantt {
+            overflow:scroll;
+        }
+    </style>
   </head>
   <body>
   <section class="section">
     <div class="container">
-        <div class="columns">
-            <div class="column">
-            
-        <div id="gantt" style="overflow: scroll; width:800px;" ></div>
-            </div>
-        </div>
+                <div id="gantt"></div>
+                <button class="button" onclick="change(this)">Day</button>
+                <button class="button" onclick="change(this)">Week</button>
+                <button class="button" onclick="change(this)">Month</button>
     </div>
   </section>
     <script>
-    var tasks;
+        var tasks;
+var gantt;
     document.addEventListener('DOMContentLoaded', function(){
         tasks ={{tasks|safe}};
-        var gantt = new Gantt( document.querySelector("#gantt"), tasks);
+         gantt = new Gantt( document.querySelector("#gantt"), tasks);
     });
+    function change($this) {
+        gantt.change_view_mode($this.textContent);
+    }
 
 </script>
   </body>

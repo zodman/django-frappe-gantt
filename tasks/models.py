@@ -9,7 +9,7 @@ class Task(MP_Node, ToDictMixin):
     name = models.CharField(max_length=100)
     start = models.DateField()
     end = models.DateField()
-    progress = models.PositiveIntegerField()
+    progress = models.PositiveIntegerField(default=0)
 
     def __unicode__(self):
         return u"{}".format(self.name)
