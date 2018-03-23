@@ -10,6 +10,10 @@ class Task(MP_Node, ToDictMixin):
     start = models.DateField()
     end = models.DateField()
     progress = models.PositiveIntegerField(default=0)
+    custom_class = models.CharField(max_length=20, null=True, blank=True)
+
+    def __str__(self):
+        return self.__unicode__()
 
     def __unicode__(self):
         return u"{}".format(self.name)
