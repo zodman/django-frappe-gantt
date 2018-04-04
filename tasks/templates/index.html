@@ -13,7 +13,6 @@
         }
 
         #gantt {
-            overflow:scroll;
         }
         .popup-wrapper .title, .popup-wrapper .subtitle {
             color:white;
@@ -27,11 +26,36 @@
   <body>
   <section class="section">
     <div class="container">
-                <div id="gantt" style="overflow:scroll;"></div>
+        <div class="columns">
+            <div class="column is-2">
+                <div class="">
+                
+                <h3>Projects</h3>
+                <hr>
+                
+                <ul class="">
+                    {%for p in projects %}
+                    {% if p.tasks.count > 0 %}
+                        
+                    <li> 
+                        <a href="?p={{p.id}}">
+                        {{p.name}}
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                </div>
+            </div>
+            <div class="column is-10">
+                 <div id="gantt" ></div>
                 <button class="button" onclick="change(this)">Day</button>
                 <button class="button" onclick="change(this)">Week</button>
                 <button class="button" onclick="change(this)">Month</button>
-    </div>
+
+            </div>
+        </div>
+   </div>
   </section>
     <script>
         var tasks;

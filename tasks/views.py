@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from tasks.models import Task
+from tasks.models import Task, Project
 import json 
 
 class TaskView(TemplateView):
@@ -19,8 +19,12 @@ class TaskView(TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super(TaskView, self).get_context_data(**kwargs)
-        tasks = Task.objects.all()
-
+        id = self.request.GET.get("id",None)
+        if not id:
+            tasks = Task.objects.all()
+        else:
+            tasks = Task.objects.filter(project__id=id)
+        ctx["projects"] = Project.objects.all()
         ctx["tasks"] = json.dumps([ self.process(t) for t in tasks])    
         return ctx
 
