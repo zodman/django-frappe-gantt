@@ -9,7 +9,7 @@ class TaskView(TemplateView):
     template_name ="index.html"
     def process(self, t):
         task = t.to_dict()
-        for i in ('path', 'depth', 'path', 'numchild'):
+        for i in ('path', 'depth', 'path', 'numchild','project'):
             if i in task:
                 del task[i]
         task['id'] = str(task['id'])

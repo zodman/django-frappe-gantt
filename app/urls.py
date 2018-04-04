@@ -7,5 +7,5 @@ from tasks.views import TaskView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', TaskView.as_view()),
+    url(r'^$', TaskView.as_view()),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + staticfiles_urlpatterns()

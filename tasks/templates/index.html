@@ -3,9 +3,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/frappe-gantt/0.1.0/frappe-gantt.css">
+    <link rel="stylesheet" href="{{MEDIA_URL}}frappe-gantt.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/frappe-gantt/0.1.0/frappe-gantt.js"></script>
+    <script defer src="{{MEDIA_URL}}frappe-gantt.js"></script>
     <style>
         .section {
             width:100%;
@@ -27,7 +27,7 @@
   <body>
   <section class="section">
     <div class="container">
-                <div id="gantt"></div>
+                <div id="gantt" style="overflow:scroll;"></div>
                 <button class="button" onclick="change(this)">Day</button>
                 <button class="button" onclick="change(this)">Week</button>
                 <button class="button" onclick="change(this)">Month</button>
@@ -35,14 +35,16 @@
   </section>
     <script>
         var tasks;
-var gantt;
-    document.addEventListener('DOMContentLoaded', function(){
-        tasks ={{tasks|safe}};
-         gantt = new Gantt( document.querySelector("#gantt"), tasks);
-    });
-    function change($this) {
-        gantt.change_view_mode($this.textContent);
-    }
+        var gantt;
+        document.addEventListener('DOMContentLoaded', function(){
+             tasks ={{tasks|safe}};
+             gantt = new Gantt( document.querySelector("#gantt"), tasks);
+             gantt.change_view_mode();
+        });
+        function change($this) {
+            gantt.hide_popup();
+            gantt.change_view_mode($this.textContent);
+        }
 
 </script>
   </body>
