@@ -3,25 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-    <link rel="stylesheet" href="{{MEDIA_URL}}frappe-gantt.css">
+    <link rel="stylesheet" href="{{MEDIA_URL}}dist/app.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script defer src="{{MEDIA_URL}}frappe-gantt.js"></script>
-    <style>
-        .section {
-            width:100%;
-            margin: 0 auto;
-        }
-
-        #gantt {
-        }
-        .popup-wrapper .title, .popup-wrapper .subtitle {
-            color:white;
-            font-size:1rem;
-        }
-        .gantt .red .bar-progress {
-                        fill: tomato;
-                                    }
-    </style>
   </head>
   <body>
   <section class="section">
@@ -57,20 +40,13 @@
         </div>
    </div>
   </section>
-    <script>
-        var tasks;
-        var gantt;
-        document.addEventListener('DOMContentLoaded', function(){
-             tasks ={{tasks|safe}};
-             gantt = new Gantt( document.querySelector("#gantt"), tasks);
-             gantt.change_view_mode();
-        });
-        function change($this) {
-            gantt.hide_popup();
-            gantt.change_view_mode($this.textContent);
-        }
 
-</script>
+  <script type="text/javascript">
+      
+       var tasks ={{tasks|safe}};
+
+  </script>
+<script defer src="{{MEDIA_URL}}dist/app.js"></script>
   </body>
 </html>
 

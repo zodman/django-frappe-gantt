@@ -1,2 +1,5 @@
 *.pyc
 *sqlite3
+node_modules
+media/dist
+mix-manifest.json

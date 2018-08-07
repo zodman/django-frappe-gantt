@@ -21,7 +21,7 @@ class Task(MP_Node, ToDictMixin):
     progress = models.PositiveIntegerField(default=0)
     custom_class = models.CharField(max_length=20, null=True, blank=True)
     project = models.ForeignKey("Project", related_name="tasks", null=True,
-                                blank=True)
+                                blank=True,  on_delete=models.CASCADE)
 
     def __str__(self):
         return self.__unicode__()
