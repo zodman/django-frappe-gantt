@@ -14,6 +14,9 @@
                 <div class="">
                 
                 <h3>Projects</h3>
+                <small>
+                    <a target='_blank' href="/admin">admin</a>
+                </small>
                 <hr>
                 
                 <ul class="">
@@ -21,7 +24,7 @@
                     {% if p.tasks.count > 0 %}
                         
                     <li> 
-                        <a href="?p={{p.id}}">
+                        <a href="?id={{p.id}}">
                         {{p.name}}
                         </a>
                     </li>
@@ -29,7 +32,8 @@
                     {% endfor %}
                 </ul>
                 </div>
-            </div>
+            </div>  
+            {% if tasks_count %}
             <div class="column is-10">
                  <div id="gantt" ></div>
                 <button class="button" onclick="change(this)">Day</button>
@@ -37,6 +41,7 @@
                 <button class="button" onclick="change(this)">Month</button>
 
             </div>
+            {% endif %}
         </div>
    </div>
   </section>

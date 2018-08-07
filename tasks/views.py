@@ -20,11 +20,14 @@ class TaskView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super(TaskView, self).get_context_data(**kwargs)
         id = self.request.GET.get("id",None)
+
         if not id:
-            tasks = Task.objects.all()
+            tasks = Task.objects.none()
         else:
             tasks = Task.objects.filter(project__id=id)
+        
         ctx["projects"] = Project.objects.all()
+        ctx["tasks_count"] = tasks.count()
         ctx["tasks"] = json.dumps([ self.process(t) for t in tasks])    
         return ctx
 
