@@ -2,8 +2,10 @@ var Gantt_ = require("frappe-gantt").default;
 var gantt;
 
 window.change = function ($this) {
+	$this.preventDefault();
     gantt.hide_popup();
     gantt.change_view_mode($this.textContent);
+    
 }
 
 

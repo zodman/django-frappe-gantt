@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'bsync',
     'django.contrib.staticfiles',
     'treebeard',
     'tasks',

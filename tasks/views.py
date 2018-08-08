@@ -25,9 +25,11 @@ class TaskView(TemplateView):
             tasks = Task.objects.none()
         else:
             tasks = Task.objects.filter(project__id=id)
-        
+
+        ctx["id"] = id
         ctx["projects"] = Project.objects.all()
         ctx["tasks_count"] = tasks.count()
         ctx["tasks"] = json.dumps([ self.process(t) for t in tasks])    
+
         return ctx
 

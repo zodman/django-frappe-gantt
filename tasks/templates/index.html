@@ -11,35 +11,51 @@
     <div class="container">
         <div class="columns">
             <div class="column is-2">
-                <div class="">
+                <div class="aside">
                 
-                <h3>Projects</h3>
-                <small>
-                    <a target='_blank' href="/admin">admin</a>
-                </small>
-                <hr>
+                    <h3 class="menu-label">Projects</h3>
+                    
+                    <hr>
                 
-                <ul class="">
-                    {%for p in projects %}
-                    {% if p.tasks.count > 0 %}
-                        
-                    <li> 
-                        <a href="?id={{p.id}}">
-                        {{p.name}}
-                        </a>
-                    </li>
-                    {% endif %}
-                    {% endfor %}
-                </ul>
+                    <ul class="menu-list">
+                        {%for p in projects %}
+                            {% if p.tasks.count > 0 %}
+                                <li {% if p.id == id %} class="is-active" {%endif%}> 
+                                    <a href="?id={{p.id}}">
+                                    {{p.name}}
+                                    </a>
+
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                    <h3 class="menu-label">Options</h3>
+                    <ul class="menu-list">
+                        <li>
+                                <a target='_blank' href="/admin">admin</a>
+                        </li>
+                    </ul>
                 </div>
             </div>  
             {% if tasks_count %}
             <div class="column is-10">
-                 <div id="gantt" ></div>
-                <button class="button" onclick="change(this)">Day</button>
-                <button class="button" onclick="change(this)">Week</button>
-                <button class="button" onclick="change(this)">Month</button>
+               
 
+                <div class="tabs is-centered is-boxed">
+                    <ul>
+                        <li>
+                            <a  onclick="change(this)">Day</a>
+                        </li>
+                        <li>
+                            <a  onclick="change(this)">Week</a>
+                        </li>
+                        <li>
+                            <a  onclick="change(this)">Month</a>
+                        </li>
+                    </ul>
+                </div>
+                  <div id="gantt" ></div>
             </div>
             {% endif %}
         </div>
