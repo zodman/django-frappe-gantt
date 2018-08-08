@@ -12,8 +12,8 @@ let mix = require('laravel-mix');
  */
 
 mix.setPublicPath('media/');
-mix.js('media\\src\\app.js', 'dist\\')
-   .sass('media\\src\\app.scss', 'dist\\');
+mix.js(path.join('media', 'src', 'app.js'), path.join('dist'))
+    .sass(path.join('media','src','app.scss'), path.join('dist'));
 
 // Full API
 // mix.js(src, output);
