@@ -20,11 +20,10 @@
                     <ul class="menu-list">
                         {%for p in projects %}
                             {% if p.tasks.count > 0 %}
-                                <li {% if p.id == id %} class="is-active" {%endif%}> 
-                                    <a href="?id={{p.id}}">
+                                <li> 
+                                    <a {% if p.id == id|add:0 %} class="is-active" {%endif%} href="?id={{p.id}}">
                                     {{p.name}}
                                     </a>
-
                                 </li>
                             {% endif %}
                         {% endfor %}

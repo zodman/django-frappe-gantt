@@ -30,8 +30,11 @@ mix.js(path.join('media', 'src', 'app.js'), path.join('dist'))
 // mix.postCss(src, output, [require('postcss-some-plugin')()]);
 mix.browserSync({
 	'proxy':'localhost:8000',
+	'logFileChanges':true,
+	'notify':true,
 	'files':[
-		path.join("media/dist/*"),
+		path.join("media","dist","*"),
+		path.join("*","templates", "**","*.html"),
 	],
 });
 // mix.combine(files, destination);

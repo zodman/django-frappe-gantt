@@ -7,6 +7,7 @@ import json
 
 class TaskView(TemplateView):
     template_name ="index.html"
+
     def process(self, t):
         task = t.to_dict()
         for i in ('path', 'depth', 'path', 'numchild','project'):

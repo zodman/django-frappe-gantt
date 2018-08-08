@@ -1,4 +1,5 @@
 django
 django-treebeard
 https://github.com/zodman/django-model-to-dict/archive/master.zip
+django-bsync
 
