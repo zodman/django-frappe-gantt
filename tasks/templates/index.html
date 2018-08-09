@@ -41,16 +41,24 @@
             <div class="column is-10">
                
 
-                <div class="tabs is-centered is-boxed">
+                <div class="tabs  is-centered is-toggle">
                     <ul>
-                        <li>
-                            <a  onclick="change(this)">Day</a>
+                        <li  class="change">
+                            <a onclick="change(this)">Day</a>
                         </li>
-                        <li>
-                            <a  onclick="change(this)">Week</a>
+                        <li  class="change">
+                            <a onclick="change(this)">Week</a>
                         </li>
-                        <li>
-                            <a  onclick="change(this)">Month</a>
+                        <li  class="change">
+                            <a onclick="change(this)">Month</a>
+                        </li>
+                    </ul>
+                    <ul class="tabs is-small">
+                   
+                        <li class="">
+                            <a  href="{% url 'admin:tasks_task_changelist' %}?project__id__exact={{id}}">
+                                <span class="icon is-small"><i class="fas fa-edit" aria-hidden="true"></i></span>
+                            Edit</a>
                         </li>
                     </ul>
                 </div>
