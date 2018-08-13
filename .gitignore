@@ -4,3 +4,4 @@ __pycache__/*
 node_modules
 media/dist
 mix-manifest.json
+*.log
