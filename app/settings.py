@@ -25,7 +25,7 @@ SECRET_KEY = '%3kyp9!7vfc4n$jga^d+#fz#0!^p87-44at)2o!@^(&u0w_=wh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     'bsync',
     'django.contrib.staticfiles',
     'treebeard',
+    'sharedtenant',
     'tasks',
     # tenant app
-    'sharedtenant',
+    
 
 ]
 
@@ -129,4 +130,3 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 MEDIA_URL ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-

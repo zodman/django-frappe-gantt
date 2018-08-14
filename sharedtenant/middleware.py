@@ -1,6 +1,7 @@
 from .models import Tenant 
 
 class SharedTenantMiddleware:
+	
 	def __init__(self, get_response):
 		self.get_response = get_response
 
@@ -8,7 +9,6 @@ class SharedTenantMiddleware:
 		
 		host = request.get_host().split(":")[0].lower()
 		subdomain = host.split('.')[0].lower()
-
 		try:
 			tenant = Tenant.objects.get(subdomain=subdomain)
 		except Tenant.DoesNotExist:

@@ -28,7 +28,7 @@ class TaskView(TemplateView):
             tasks = Task.objects.filter(project__id=id)
 
         ctx["id"] = id
-        ctx["projects"] = Project.objects.all()
+        ctx["projects"] = Project.objects.filter(tenant=self.request.tenant)
         ctx["tasks_count"] = tasks.count()
         ctx["tasks"] = json.dumps([ self.process(t) for t in tasks])    
 
