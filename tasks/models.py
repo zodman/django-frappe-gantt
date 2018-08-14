@@ -3,9 +3,10 @@ from __future__ import unicode_literals
 from treebeard.mp_tree import MP_Node
 from django.db import models
 from django_model_to_dict.mixins import ToDictMixin
+from sharedtenant.models import TenantMix
 
 
-class Project(ToDictMixin, models.Model):
+class Project(ToDictMixin, TenantMix, models.Model):
     name = models.CharField(max_length=200)
 
     def __str__(self):
@@ -14,7 +15,7 @@ class Project(ToDictMixin, models.Model):
     def __unicode__(self):
         return u"{}".format(self.name)
 
-class Task(MP_Node, ToDictMixin):
+class Task(MP_Node, ToDictMixin, TenantMix):
     name = models.CharField(max_length=100)
     start = models.DateField()
     end = models.DateField()
